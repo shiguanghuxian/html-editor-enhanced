@@ -339,6 +339,7 @@ class _HtmlEditorWidgetMobileState extends State<HtmlEditorWidget> {
                               toolbar: $summernoteToolbar
                               disableGrammar: false,
                               spellCheck: false,
+                              disableDragAndDrop: true,
                               popover: {
                                 link: [
                                   ['link', ['unlink']]
