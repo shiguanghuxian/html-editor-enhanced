@@ -1777,7 +1777,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                         child: StatefulBuilder(builder:
                             (BuildContext context, StateSetter setState) {
                           return AlertDialog(
-                            title: Text('Insert Link'),
+                            title: Text('插入链接'),
                             scrollable: true,
                             content: Form(
                               key: formKey,
@@ -1785,7 +1785,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('Text to display',
+                                    Text('显示文字',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold)),
                                     SizedBox(height: 10),
@@ -1795,7 +1795,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                       textInputAction: TextInputAction.next,
                                       decoration: InputDecoration(
                                         border: OutlineInputBorder(),
-                                        hintText: 'Text',
+                                        hintText: '请填写要显示的文字',
                                       ),
                                       onSubmitted: (_) {
                                         urlFocus.requestFocus();
@@ -1812,51 +1812,52 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                       textInputAction: TextInputAction.done,
                                       decoration: InputDecoration(
                                         border: OutlineInputBorder(),
-                                        hintText: 'URL',
+                                        hintText: '请输入url地址',
                                       ),
                                       validator: (String? value) {
                                         if (value == null || value.isEmpty) {
-                                          return 'Please enter a URL!';
+                                          return '请输入一个URL！';
                                         }
                                         return null;
                                       },
                                     ),
-                                    Row(
-                                      children: <Widget>[
-                                        SizedBox(
-                                          height: 48.0,
-                                          width: 24.0,
-                                          child: Checkbox(
-                                            value: openNewTab,
-                                            activeColor: Color(0xFF827250),
-                                            onChanged: (bool? value) {
-                                              setState(() {
-                                                openNewTab = value!;
-                                              });
-                                            },
-                                          ),
-                                        ),
-                                        ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                              primary: Theme.of(context)
-                                                  .dialogBackgroundColor,
-                                              padding: EdgeInsets.only(
-                                                  left: 5, right: 5),
-                                              elevation: 0.0),
-                                          onPressed: () {
-                                            setState(() {
-                                              openNewTab = !openNewTab;
-                                            });
-                                          },
-                                          child: Text('Open in new window',
-                                              style: TextStyle(
-                                                  color: Theme.of(context)
-                                                      .textTheme
-                                                      .bodyText1
-                                                      ?.color)),
-                                        ),
-                                      ],
-                                    ),
+                                    // 不需要新窗口打开
+                                    // Row(
+                                    //   children: <Widget>[
+                                    //     SizedBox(
+                                    //       height: 48.0,
+                                    //       width: 24.0,
+                                    //       child: Checkbox(
+                                    //         value: openNewTab,
+                                    //         activeColor: Color(0xFF827250),
+                                    //         onChanged: (bool? value) {
+                                    //           setState(() {
+                                    //             openNewTab = value!;
+                                    //           });
+                                    //         },
+                                    //       ),
+                                    //     ),
+                                    //     ElevatedButton(
+                                    //       style: ElevatedButton.styleFrom(
+                                    //           primary: Theme.of(context)
+                                    //               .dialogBackgroundColor,
+                                    //           padding: EdgeInsets.only(
+                                    //               left: 5, right: 5),
+                                    //           elevation: 0.0),
+                                    //       onPressed: () {
+                                    //         setState(() {
+                                    //           openNewTab = !openNewTab;
+                                    //         });
+                                    //       },
+                                    //       child: Text('Open in new window',
+                                    //           style: TextStyle(
+                                    //               color: Theme.of(context)
+                                    //                   .textTheme
+                                    //                   .bodyText1
+                                    //                   ?.color)),
+                                    //     ),
+                                    //   ],
+                                    // ),
                                   ]),
                             ),
                             actions: [
@@ -1864,7 +1865,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Cancel'),
+                                child: Text('取消'),
                               ),
                               TextButton(
                                 onPressed: () async {
@@ -1891,7 +1892,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     Navigator.of(context).pop();
                                   }
                                 },
-                                child: Text('OK'),
+                                child: Text('确定'),
                               )
                             ],
                           );
@@ -1917,13 +1918,13 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                         child: StatefulBuilder(builder:
                             (BuildContext context, StateSetter setState) {
                           return AlertDialog(
-                            title: Text('Insert Image'),
+                            title: Text('插入图片'),
                             scrollable: true,
                             content: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Select from files',
+                                  Text('从相册选择',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold)),
                                   SizedBox(height: 10),
@@ -1955,7 +1956,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                               });
                                             }
                                           },
-                                          child: Text('Choose image',
+                                          child: Text('选择图片',
                                               style: TextStyle(
                                                   color: Theme.of(context)
                                                       .textTheme
@@ -1987,7 +1988,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     textInputAction: TextInputAction.done,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
-                                      hintText: 'URL',
+                                      hintText: '图片链接地址',
                                       errorText: validateFailed,
                                       errorMaxLines: 2,
                                     ),
@@ -1998,7 +1999,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Cancel'),
+                                child: Text('取消'),
                               ),
                               TextButton(
                                 onPressed: () async {
@@ -2006,13 +2007,13 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                       url.text.isEmpty) {
                                     setState(() {
                                       validateFailed =
-                                          'Please either choose an image or enter an image URL!';
+                                          '请选择图像或输入图像URL！';
                                     });
                                   } else if (filename.text.isNotEmpty &&
                                       url.text.isNotEmpty) {
                                     setState(() {
                                       validateFailed =
-                                          'Please input either an image or an image URL, not both!';
+                                          '请输入图像或图像URL，不要同时输入！';
                                     });
                                   } else if (filename.text.isNotEmpty &&
                                       result?.files.single.bytes != null) {
@@ -2043,7 +2044,7 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                     Navigator.of(context).pop();
                                   }
                                 },
-                                child: Text('OK'),
+                                child: Text('确定'),
                               )
                             ],
                           );
