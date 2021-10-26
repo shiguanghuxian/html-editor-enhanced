@@ -1777,7 +1777,15 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                         child: StatefulBuilder(builder:
                             (BuildContext context, StateSetter setState) {
                           return AlertDialog(
-                            title: Text('插入链接'),
+                            title: Text(
+                              '插入链接',
+                              style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    ?.color,
+                              ),
+                            ),
                             scrollable: true,
                             content: Form(
                               key: formKey,
@@ -1821,43 +1829,6 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                         return null;
                                       },
                                     ),
-                                    // 不需要新窗口打开
-                                    // Row(
-                                    //   children: <Widget>[
-                                    //     SizedBox(
-                                    //       height: 48.0,
-                                    //       width: 24.0,
-                                    //       child: Checkbox(
-                                    //         value: openNewTab,
-                                    //         activeColor: Color(0xFF827250),
-                                    //         onChanged: (bool? value) {
-                                    //           setState(() {
-                                    //             openNewTab = value!;
-                                    //           });
-                                    //         },
-                                    //       ),
-                                    //     ),
-                                    //     ElevatedButton(
-                                    //       style: ElevatedButton.styleFrom(
-                                    //           primary: Theme.of(context)
-                                    //               .dialogBackgroundColor,
-                                    //           padding: EdgeInsets.only(
-                                    //               left: 5, right: 5),
-                                    //           elevation: 0.0),
-                                    //       onPressed: () {
-                                    //         setState(() {
-                                    //           openNewTab = !openNewTab;
-                                    //         });
-                                    //       },
-                                    //       child: Text('Open in new window',
-                                    //           style: TextStyle(
-                                    //               color: Theme.of(context)
-                                    //                   .textTheme
-                                    //                   .bodyText1
-                                    //                   ?.color)),
-                                    //     ),
-                                    //   ],
-                                    // ),
                                   ]),
                             ),
                             actions: [
@@ -1918,7 +1889,15 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                         child: StatefulBuilder(builder:
                             (BuildContext context, StateSetter setState) {
                           return AlertDialog(
-                            title: Text('插入图片'),
+                            title: Text(
+                              '插入图片',
+                              style: TextStyle(
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    ?.color,
+                              ),
+                            ),
                             scrollable: true,
                             content: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -2006,14 +1985,12 @@ class ToolbarWidgetState extends State<ToolbarWidget> {
                                   if (filename.text.isEmpty &&
                                       url.text.isEmpty) {
                                     setState(() {
-                                      validateFailed =
-                                          '请选择图像或输入图像URL！';
+                                      validateFailed = '请选择图像或输入图像URL！';
                                     });
                                   } else if (filename.text.isNotEmpty &&
                                       url.text.isNotEmpty) {
                                     setState(() {
-                                      validateFailed =
-                                          '请输入图像或图像URL，不要同时输入！';
+                                      validateFailed = '请输入图像或图像URL，不要同时输入！';
                                     });
                                   } else if (filename.text.isNotEmpty &&
                                       result?.files.single.bytes != null) {
